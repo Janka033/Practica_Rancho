@@ -1,12 +1,10 @@
 <?php
-class PrincipalModel extends Conexion {
-    private $con;
+class PrincipalModel extends Query{
     public function __construct() {
-        $this->con = new Conexion();
+        parent::__construct();
     }
     public function getPrueba() {
-        $data = $this->con->conectar();
-        return $data;
+        return $this->select("SELECT * FROM usuarios WHERE id = 1");
     }
 }
 ?>
