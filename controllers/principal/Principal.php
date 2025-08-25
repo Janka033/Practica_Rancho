@@ -5,6 +5,7 @@ class Principal extends Controller {
     }
    public function index() {
     $data = $this->model->getPrueba();
-       echo $data;
-   }
+    print_r($data);
+    //$this->views->getView('principal', 'index', $data);
+}
 }

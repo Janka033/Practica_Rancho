@@ -1,7 +1,12 @@
 <?php
-class PrincipalModel {
+class PrincipalModel extends Conexion {
+    private $con;
+    public function __construct() {
+        $this->con = new Conexion();
+    }
     public function getPrueba() {
-        return 'Mensaje desde el modelo';
+        $data = $this->con->conectar();
+        return $data;
     }
 }
 ?>
