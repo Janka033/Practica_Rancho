@@ -20,16 +20,15 @@ else {
     $controller = ucfirst($array[$indiceUrl]);
     $metodo= 'index';
     }
-    //Validad parametros
-    $metodoIndice = ($isAdmin) ? 2 : 1;
-    $parametroIndice = ($isAdmin) ? 3 : 2; // <-- Mueve esto antes de usarlo
-    if(!empty($array[$parametroIndice]) && $array[$parametroIndice] != '') {
+    //Validad metodos
+    $metodoIndice = ($isAdmin) ? 3 : 2; // <-- Mueve esto antes de usarlo
+    if(!empty($array[$metodoIndice]) && $array[$metodoIndice] != '') {
         $metodo = $array[$metodoIndice];
     }
-    //Validad metodos
+    //Validad paramtros
         $parametro = '';
         $parametroIndice = ($isAdmin) ? 3 : 2;
-    if(!empty($array[$metodoIndice]) && $array[$metodoIndice] != '') {
+    if(!empty($array[$parametroIndice]) && $array[$parametroIndice] != '') {
         for($i = $parametroIndice; $i < count($array); $i++) {
             $parametro .= $array[$i] . ',';
         }
