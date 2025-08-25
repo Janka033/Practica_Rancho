@@ -4,7 +4,7 @@ class Principal extends Controller {
         parent::__construct();
     }
    public function index() {
-    $data = $this->model->getPrueba();
+    $data = fechaPerzo(date('Y-m-d'));
     print_r($data);
     //$this->views->getView('principal', 'index', $data);
 }
