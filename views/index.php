@@ -52,7 +52,7 @@
 <!-- Start Check Area -->
 <div class="check-area mb-minus-70">
     <div class="container">
-        <form class="check-form">
+        <form class="check-form" action="<?php echo RUTA_PRINCIPAL . 'principal/verify';?>">
             <div class="row align-items-center">
                 <div class="col-lg-3 col-sm-6">
                     <div class="check-content">
@@ -60,7 +60,7 @@
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker-1">
                                 <i class="flaticon-calendar"></i>
-                                <input type="text" class="form-control" placeholder="29/02/2020">
+                                <input type="text" class="form-control" name = "f_llegada">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-th"></i>
                                 </span>
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker-2">
                                 <i class="flaticon-calendar"></i>
-                                <input type="text" class="form-control" placeholder="29/02/2020">
+                                <input type="text" class="form-control" name = "f_salida">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-th"></i>
                                 </span>
@@ -103,7 +103,7 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="check-btn check-content mb-0">
-                            <button class="default-btn">
+                            <button class="default-btn" type="submit">
                                 Comprobar
                                 <i class="flaticon-right"></i>
                             </button>

@@ -348,6 +348,8 @@
 
 	// Date Picker 1 JS
 	$('#datetimepicker-1').datepicker({
+		format: 'dd-mm-yyyy',
+		value : new Date(),
 		weekStart: 0,
 		todayBtn: "linked",
 		language: "es",
@@ -358,6 +360,7 @@
 
 	// Date Picker 2 JS
 	$('#datetimepicker-2').datepicker({
+		format: 'dd-mm-yyyy',
 		weekStart: 0,
 		todayBtn: "linked",
 		language: "es",
