@@ -5,6 +5,8 @@ class Principal extends Controller {
     }
     public function index(){
         $data['title'] = 'Pagina Principal';
+        //Traer Sliders
+        $data['sliders'] = $this->model->getSliders();
         $this->views->getView('index', $data);
     }
 }
