@@ -21,7 +21,7 @@ else {
     $metodo= 'index';
     }
     //Validad metodos
-    $metodoIndice = ($isAdmin) ? 3 : 2; // <-- Mueve esto antes de usarlo
+    $metodoIndice = ($isAdmin) ? 3 : 1; // <-- Mueve esto antes de usarlo
     if(!empty($array[$metodoIndice]) && $array[$metodoIndice] != '') {
         $metodo = $array[$metodoIndice];
     }

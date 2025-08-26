@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
           businessHours: true, // display business hours
           editable: true,
           selectable: true,
-          events: base_url + '?url=reserva/listar/' + f_llegada.value + '/' + f_salida.value + '/' + habitacion.value
+          events: base_url + 'reserva/listar/' + f_llegada.value + '/' + f_salida.value + '/' + habitacion.value
           /*events: [
             {
               title: "Business Lunch",

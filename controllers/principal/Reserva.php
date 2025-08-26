@@ -37,19 +37,22 @@ class Reserva extends Controller
 
         if ($f_llegada != null && $f_salida != null && $habitacion != null) {
             $reservas = $this->model->getReservasHabitacion($habitacion);
-            print_r($reservas);
-            exit;
+
             for ($i = 0; $i < count($reservas); $i++) {
                 $datos['id'] = $reservas[$i]['id'];
                 $datos['title'] = 'OCUPADO';
                 $datos['start'] = $reservas[$i]['fecha_ingreso'];
                 $datos['end'] = $reservas[$i]['fecha_salida'];
+                $datos['color'] = '#dc3545';
+
                 array_push($results, $datos);
             }
             $data['id'] = $habitacion;
             $data['title'] = 'COMPROBANDO';
             $data['start'] = $f_llegada;
             $data['end'] = $f_salida;
+            $data['color'] = '#ffc107';
+
 
             array_push($results, $data);
             echo json_encode($results), JSON_UNESCAPED_UNICODE;
