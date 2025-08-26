@@ -242,3 +242,5 @@ include_once 'views/templates/portada.php';
 		</section>
 		<!-- End Our Rooms Area -->
 <?php include_once 'views/templates/footer-principal.php'; ?>
+</body>
+</html>
