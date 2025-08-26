@@ -52,7 +52,7 @@
 <!-- Start Check Area -->
 <div class="check-area mb-minus-70">
     <div class="container">
-<form class="check-form" id="formulario" action="<?php echo RUTA_PRINCIPAL . 'principal/reserva/verify'; ?>" method="get">            
+<form class="check-form" id="formulario" action="<?php echo RUTA_PRINCIPAL . 'reserva/verify'; ?>" method="get">
     <div class="row align-items-center">
                 <div class="col-lg-3 col-sm-6">
                     <div class="check-content">
@@ -86,11 +86,11 @@
                 <div class="col-lg-3">
                     <div class="check-content">
                         <div class="form-group">
-                            <label for="Habitacion" class="form-label">Habitaciones</label>
+                            <label for="habitacion" class="form-label">Habitaciones</label>
                             <select
-                                name="Habitacion"
+                                name="habitacion"
                                 class="select-auto"
-                                id="Habitacion" style="width: 100%;">
+                                id="habitacion" style="width: 100%;">
                                 <option value>Seleccionar</option>
                                 <?php foreach ($data['habitaciones'] as $habitacion) { ?>
                                     <option value="<?php echo $habitacion['id']; ?>"><?php echo $habitacion['estilo']; ?></option>

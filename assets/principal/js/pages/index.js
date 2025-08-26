@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (
       frm.f_llegada.value == "" ||
       frm.f_salida.value == "" ||
-      frm.Habitacion.value == ""
+      frm.habitacion.value == ""
     ) {
       alertaSW("Todos los campos son requeridos", "warning");
     } else {
