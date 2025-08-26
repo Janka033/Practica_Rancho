@@ -1,5 +1,4 @@
-
-<?php echo include_once 'views/template/header-principal.php'; ?>
+<?php include_once 'templates/header-principal.php'; ?>
 <!-- Start Ecorik Slider Area -->
 <section class="eorik-slider-area">
     <div class="eorik-slider owl-carousel owl-theme">
@@ -918,7 +917,7 @@
     </div>
 </section>
 <!-- End News Area -->
-<?php include_once 'views/template/footer-principal.php'; ?>
+<?php include_once 'templates/footer-principal.php'; ?>
 </body>
 
 </html>

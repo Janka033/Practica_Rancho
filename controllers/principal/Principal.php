@@ -5,7 +5,7 @@ class Principal extends Controller {
     }
     public function index(){
         $data['title'] = 'Pagina Principal';
-        $this->views->getView('principal', 'index', $data);
+        $this->views->getView('index', $data);
     }
 }
 ?>
