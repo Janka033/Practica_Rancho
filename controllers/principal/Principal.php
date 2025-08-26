@@ -7,6 +7,8 @@ class Principal extends Controller {
         $data['title'] = 'Pagina Principal';
         //Traer Sliders
         $data['sliders'] = $this->model->getSliders();
+        //Traer Habitaciones
+        $data['habitaciones'] = $this->model->getHabitaciones();
         $this->views->getView('index', $data);
     }
 }
