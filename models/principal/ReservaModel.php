@@ -9,5 +9,10 @@ class ReservaModel extends Query{
         WHERE fecha_ingreso <= '$f_salida' 
         AND fecha_salida >= '$f_llegada' AND id_habitacion = $habitacion");
 }
+
+ public function getReservasHabitacion($habitacion){
+        return $this->select("SELECT * FROM reservas 
+        WHERE  id_habitacion = $habitacion");
+}
 }
 ?>

@@ -15,11 +15,45 @@ class Reserva extends Controller
             if (empty($f_llegada) || empty($f_salida) || empty($habitacion)) {
                 header('Location: ' . RUTA_PRINCIPAL . '?respuesta=warning');
             } else {
-                $data['disponible'] = $this->model->getDisponibilidad($f_llegada, $f_salida, $habitacion);
+                $data['reserva'] = $this->model->getDisponible($f_llegada, $f_salida, $habitacion);
                 $data['title'] = 'Reservas';
                 $data['subtitle'] = 'Verificar Disponibilidad';
+                $data['disponible'] = [
+                    'f_llegada' => $f_llegada,
+                    'f_salida' => $f_salida,
+                    'habitacion' => $habitacion
+                ];
                 $this->views->getView('principal/reserva/reservas', $data);
             }
         }
+    }
+    public function listar($parametros)
+    {
+        $array = explode(',', $parametros);
+        $f_llegada = (!empty($array[0])) ? $array[0] : null;
+        $f_salida = (!empty($array[1])) ? $array[1] : null;
+        $habitacion = (!empty($array[2])) ? $array[2] : null;
+        $results = [];
+
+        if ($f_llegada != null && $f_salida != null && $habitacion != null) {
+            $reservas = $this->model->getReservasHabitacion($habitacion);
+            print_r($reservas);
+            exit;
+            for ($i = 0; $i < count($reservas); $i++) {
+                $datos['id'] = $reservas[$i]['id'];
+                $datos['title'] = 'OCUPADO';
+                $datos['start'] = $reservas[$i]['fecha_ingreso'];
+                $datos['end'] = $reservas[$i]['fecha_salida'];
+                array_push($results, $datos);
+            }
+            $data['id'] = $habitacion;
+            $data['title'] = 'COMPROBANDO';
+            $data['start'] = $f_llegada;
+            $data['end'] = $f_salida;
+
+            array_push($results, $data);
+            echo json_encode($results), JSON_UNESCAPED_UNICODE;
+        }
+        die();
     }
 }

@@ -1,3 +1,7 @@
+const f_llegada = document.querySelector("#f_llegada");
+const f_salida = document.querySelector("#f_salida");
+const habitacion = document.querySelector("#habitacion");
+
 document.addEventListener("DOMContentLoaded", function () {
         var calendarEl = document.getElementById("calendar");
 
@@ -8,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
             right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
           },
           locale: "es",
-          initialDate: "2023-01-12",
           navLinks: true, // can click day/week names to navigate views
           businessHours: true, // display business hours
           editable: true,
           selectable: true,
-          events: [
+          events : base_url + 'reserva/listar' + f_llegada.value + '/' + f_salida.value + '/' + habitacion.value
+          /*events: [
             {
               title: "Business Lunch",
               start: "2023-01-03T13:00:00",
@@ -64,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
               display: "background",
               color: "#ff9f89",
             },
-          ],
+          ],*/
         });
 
         calendar.render();

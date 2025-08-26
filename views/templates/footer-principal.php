@@ -263,6 +263,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+    const base_url = '<?php echo RUTA_PRINCIPAL; ?>';
     function alertaSW(mensaje, tipo){
         Swal.fire({
             position: "top-end",

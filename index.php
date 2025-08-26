@@ -25,7 +25,7 @@ else {
     if(!empty($array[$metodoIndice]) && $array[$metodoIndice] != '') {
         $metodo = $array[$metodoIndice];
     }
-    //Validad paramtros
+    //Validad parametros
         $parametro = '';
         $parametroIndice = ($isAdmin) ? 3 : 2;
     if(!empty($array[$parametroIndice]) && $array[$parametroIndice] != '') {
