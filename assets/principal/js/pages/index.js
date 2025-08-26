@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
   frm.addEventListener("submit", function (e) {
     e.preventDefault();
     if (
+      frm.f_llegada.value == "" ||
       frm.f_salida.value == "" ||
-      frm.f_salida.value == "" ||
-      frm.f_salida.value == ""()
+      frm.Habitacion.value == ""
     ) {
       alertaSW("Todos los campos son requeridos", "warning");
     } else {
