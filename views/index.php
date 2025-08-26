@@ -52,8 +52,8 @@
 <!-- Start Check Area -->
 <div class="check-area mb-minus-70">
     <div class="container">
-        <form class="check-form" id = "formulario" action="<?php echo RUTA_PRINCIPAL . 'reserva/verify';?>">
-            <div class="row align-items-center">
+<form class="check-form" id="formulario" action="<?php echo RUTA_PRINCIPAL . 'principal/reserva/verify'; ?>" method="get">            
+    <div class="row align-items-center">
                 <div class="col-lg-3 col-sm-6">
                     <div class="check-content">
                         <p>Fecha Llegada</p>
