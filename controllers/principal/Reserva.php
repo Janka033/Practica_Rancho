@@ -15,7 +15,7 @@ class Reserva extends Controller
             if (empty($f_llegada) || empty($f_salida) || empty($habitacion)) {
                 header('Location: ' . RUTA_PRINCIPAL . '?respuesta=warning');
             } else {
-                $data['reserva'] = $this->model->getDisponible($f_llegada, $f_salida, $habitacion);
+                $reserva = $this->model->getDisponible($f_llegada, $f_salida, $habitacion);
                 $data['title'] = 'Reservas';
                 $data['subtitle'] = 'Verificar Disponibilidad';
                 $data['disponible'] = [
@@ -23,6 +23,14 @@ class Reserva extends Controller
                     'f_salida' => $f_salida,
                     'habitacion' => $habitacion
                 ];
+                if (empty($reserva)) {
+                    $data['mensaje'] = 'DISPONIBLE';                    
+                    $data['tipo'] = 'success';
+
+                } else {
+                    $data['mensaje'] = 'NO DISPONIBLE';
+                    $data['tipo'] = 'danger';
+                }
                 $this->views->getView('principal/reserva/reservas', $data);
             }
         }
@@ -36,27 +44,25 @@ class Reserva extends Controller
         $results = [];
 
         if ($f_llegada != null && $f_salida != null && $habitacion != null) {
-            $reservas = $this->model->getReservasHabitacion($habitacion);
+    $reserva = $this->model->getReservasHabitacion($habitacion);
 
-            for ($i = 0; $i < count($reservas); $i++) {
-                $datos['id'] = $reservas[$i]['id'];
-                $datos['title'] = 'OCUPADO';
-                $datos['start'] = $reservas[$i]['fecha_ingreso'];
-                $datos['end'] = $reservas[$i]['fecha_salida'];
-                $datos['color'] = '#dc3545';
+    $datos['id'] = isset($reserva['id']) ? $reserva['id'] : null;
+    $datos['title'] = 'OCUPADO';
+    $datos['start'] = isset($reserva['fecha_ingreso']) ? $reserva['fecha_ingreso'] : null;
+    $datos['end'] = isset($reserva['fecha_salida']) ? $reserva['fecha_salida'] : null;
+    $datos['color'] = '#dc3545';
 
-                array_push($results, $datos);
-            }
-            $data['id'] = $habitacion;
-            $data['title'] = 'COMPROBANDO';
-            $data['start'] = $f_llegada;
-            $data['end'] = $f_salida;
-            $data['color'] = '#ffc107';
+    $results[] = $datos;
 
+    $data['id'] = $habitacion;
+    $data['title'] = 'COMPROBANDO';
+    $data['start'] = $f_llegada;
+    $data['end'] = $f_salida;
+    $data['color'] = '#ffc107';
 
-            array_push($results, $data);
-            echo json_encode($results), JSON_UNESCAPED_UNICODE;
-        }
-        die();
+    $results[] = $data;
+    echo json_encode($results, JSON_UNESCAPED_UNICODE);
+    die();
+}
     }
 }
