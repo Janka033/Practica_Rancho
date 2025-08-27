@@ -1,8 +1,5 @@
 const frm = document.querySelector("#formulario");
 document.addEventListener("DOMContentLoaded", function () {
-  $(".select-auto").select2({
-    theme: "bootstrap-5",
-  });
   //Validar campos
   frm.addEventListener("submit", function (e) {
     e.preventDefault();
