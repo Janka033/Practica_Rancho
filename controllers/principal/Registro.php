@@ -15,7 +15,7 @@ class Registro extends Controller
     public function crear()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (validarCampos(['nombre', 'apellido', 'usuario', 'correo', 'clave', 'confirmar'])) {
+            if (validarCampos(['nombre', 'apellido', 'usuario', 'correo', 'clave', 'confirmar', 'chb2'])) {
                 $nombre = strClean($_POST['nombre']);
                 $apellido = strClean($_POST['apellido']);
                 $usuario = strClean($_POST['usuario']);
@@ -25,6 +25,27 @@ class Registro extends Controller
                 $hash = password_hash($clave, PASSWORD_DEFAULT);
                 $rol = 2;
                 if ($clave == $confirmar) {
+                    // Verificar
+                    $verificarUser = $this->model->validarUnique('usuario', $usuario, 0);
+                    if (empty($verificarUser)) {
+                    // Verificar
+                    $verificarCorreo = $this->model->validarUnique('correo', $correo, 0);
+                    if (empty($verificarCorreo)) {
+                        $data = $this->model->registrarse($nombre, $apellido, $usuario, $correo, $hash, $rol);
+                    if ($data > 0) {
+                        $res = ['tipo' => 'success', 'msg' => 'USUARIO REGISTRADO'];
+                    } else {
+                        $res = ['tipo' => 'error', 'msg' => 'ERROR AL REGISTRARSE'];
+                    }
+                    }else {
+                        $res = ['tipo' => 'error', 'msg' => 'EL CORREO YA EXISTE'];
+
+                    }
+                    } else{
+                        $res = ['tipo' => 'error', 'msg' => 'EL USUARIO YA EXISTE'];
+
+                    }
+
                     $data = $this->model->registrarse($nombre, $apellido, $usuario, $correo, $hash, $rol);
                     if ($data > 0) {
                         $res = ['tipo' => 'success', 'msg' => 'USUARIO REGISTRADO EXITOSAMENTE'];
