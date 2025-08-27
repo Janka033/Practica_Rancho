@@ -3,7 +3,7 @@ const terminos = document.querySelector("#chb2");
 document.addEventListener("DOMContentLoaded", function () {
   frm.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (
+    /*if (
       frm.nombre.value == "" ||
       frm.apellido.value == "" ||
       frm.usuario.value == "" ||
@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
       frm.confirmar.value == ""
     ) {
       alertaSW("TODOS LOS CAMPOS SON REQUERIDOS", "warning");
-    } else if (terminos.checked) {
+    } else if (!terminos.checked) {
       alertaSW("ACEPTAR LOS TERMINOS Y CONDICIONES", "warning");
-    } else {
+    } else {*/
       const http = new XMLHttpRequest();
 
       const url = base_url + "registro/crear";
@@ -27,6 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(this.responseText);
         }
       };
-    }
+    //}
   });
 });

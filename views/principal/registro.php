@@ -35,12 +35,12 @@ include_once 'views/templates/portada.php';
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="text" name="clave" placeholder="Contraseña">
+											<input class="form-control" type="password" name="clave" placeholder="Contraseña">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 ">
 										<div class="form-group">
-											<input class="form-control" type="text" name="confirmar" placeholder="Confirmar Contraseña">
+											<input class="form-control" type="password" name="confirmar" placeholder="Confirmar Contraseña">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-xs-12 form-condition">
