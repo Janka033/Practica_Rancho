@@ -15,37 +15,37 @@ include_once 'views/templates/portada.php';
 								<div class="row">
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="text" name="nombre" placeholder="Nombre">
+											<input class="form-control" type="text" name="nombre" placeholder="Nombre" required>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 ">
 										<div class="form-group">
-											<input class="form-control" type="text" name="apellido" placeholder="Apellidos">
+											<input class="form-control" type="text" name="apellido" placeholder="Apellidos" required>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="text" name="usuario" placeholder="usuario">
+											<input class="form-control" type="text" name="usuario" placeholder="usuario" required>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="email" name="correo" placeholder="Correo Electronico">
+											<input class="form-control" type="email" name="correo" placeholder="Correo Electronico" required>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="password" name="clave" placeholder="Contraseña">
+											<input class="form-control" type="password" name="clave" placeholder="Contraseña" required>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 ">
 										<div class="form-group">
-											<input class="form-control" type="password" name="confirmar" placeholder="Confirmar Contraseña">
+											<input class="form-control" type="password" name="confirmar" placeholder="Confirmar Contraseña" required>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-xs-12 form-condition">
 										<div class="agree-label">
-											<input type="checkbox" id="chb2" name="chb2">
+											<input type="checkbox" id="chb2" name="chb2" required>
 											<label for="chb2">
 												Estoy de acuerdo
 												<a href="#">Terminos y condiciones</a>
@@ -61,7 +61,7 @@ include_once 'views/templates/portada.php';
 									<div class="col-12">
 										<p class="account-desc">
 											Ya tienes una cuenta?
-											<a href="<?php echo RUTA_PRINCIPAL . 'login'; ?>"> Iniciar sesión</a>
+											<a href="<?php echo RUTA_PRINCIPAL . 'login'; ?>">Login</a>
 										</p>
 									</div>
 								</div>

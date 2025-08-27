@@ -28,29 +28,20 @@ class Registro extends Controller
                     // Verificar
                     $verificarUser = $this->model->validarUnique('usuario', $usuario, 0);
                     if (empty($verificarUser)) {
-                    // Verificar
-                    $verificarCorreo = $this->model->validarUnique('correo', $correo, 0);
-                    if (empty($verificarCorreo)) {
-                        $data = $this->model->registrarse($nombre, $apellido, $usuario, $correo, $hash, $rol);
-                    if ($data > 0) {
-                        $res = ['tipo' => 'success', 'msg' => 'USUARIO REGISTRADO'];
+                        // Verificar
+                        $verificarCorreo = $this->model->validarUnique('correo', $correo, 0);
+                        if (empty($verificarCorreo)) {
+                            $data = $this->model->registrarse($nombre, $apellido, $usuario, $correo, $hash, $rol);
+                            if ($data > 0) {
+                                $res = ['tipo' => 'success', 'msg' => 'USUARIO REGISTRADO'];
+                            } else {
+                                $res = ['tipo' => 'warning', 'msg' => 'ERROR AL REGISTRARSE'];
+                            }
+                        } else {
+                            $res = ['tipo' => 'warning', 'msg' => 'EL CORREO YA EXISTE'];
+                        }
                     } else {
-                        $res = ['tipo' => 'error', 'msg' => 'ERROR AL REGISTRARSE'];
-                    }
-                    }else {
-                        $res = ['tipo' => 'error', 'msg' => 'EL CORREO YA EXISTE'];
-
-                    }
-                    } else{
-                        $res = ['tipo' => 'error', 'msg' => 'EL USUARIO YA EXISTE'];
-
-                    }
-
-                    $data = $this->model->registrarse($nombre, $apellido, $usuario, $correo, $hash, $rol);
-                    if ($data > 0) {
-                        $res = ['tipo' => 'success', 'msg' => 'USUARIO REGISTRADO EXITOSAMENTE'];
-                    } else {
-                        $res = ['tipo' => 'error', 'msg' => 'ERROR AL REGISTRAR USUARIO'];
+                        $res = ['tipo' => 'warning', 'msg' => 'EL USUARIO YA EXISTE'];
                     }
                 } else {
                     $res = ['tipo' => 'warning', 'msg' => 'LAS CONTRASEÑAS NO COINCIDEN'];
