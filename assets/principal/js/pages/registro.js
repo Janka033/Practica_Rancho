@@ -1,4 +1,5 @@
 const frm = document.querySelector("#formulario");
+const terminos = document.querySelector("#chb2");
 document.addEventListener("DOMContentLoaded", function () {
   frm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -10,11 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
       frm.clave.value == "" ||
       frm.confirmar.value == ""
     ) {
-      alertaSW("Todos los campos son requeridos", "warning");
+      alertaSW("TODOS LOS CAMPOS SON REQUERIDOS", "warning");
+    } else if (terminos.checked) {
+      alertaSW("ACEPTAR LOS TERMINOS Y CONDICIONES", "warning");
     } else {
       const http = new XMLHttpRequest();
 
-      const url = base_url + 'registro/crear';
+      const url = base_url + "registro/crear";
 
       http.open("POST", url, true);
       http.send(new FormData(frm));
