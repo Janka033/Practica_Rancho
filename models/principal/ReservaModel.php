@@ -14,5 +14,10 @@ class ReservaModel extends Query{
         return $this->select("SELECT * FROM reservas 
         WHERE  id_habitacion = $habitacion");
 }
+//Recuperar las habitaciones
+    public function getHabitaciones() {
+        return $this->selectAll("SELECT * FROM habitaciones");
+        
+    }
 }
 ?>

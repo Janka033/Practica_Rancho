@@ -24,13 +24,14 @@ class Reserva extends Controller
                     'habitacion' => $habitacion
                 ];
                 if (empty($reserva)) {
-                    $data['mensaje'] = 'DISPONIBLE';                    
+                    $data['mensaje'] = 'DISPONIBLE';
                     $data['tipo'] = 'success';
-
                 } else {
                     $data['mensaje'] = 'NO DISPONIBLE';
                     $data['tipo'] = 'danger';
                 }
+                $data['habitaciones'] = $this->model->getHabitaciones();
+
                 $this->views->getView('principal/reserva/reservas', $data);
             }
         }
@@ -44,25 +45,25 @@ class Reserva extends Controller
         $results = [];
 
         if ($f_llegada != null && $f_salida != null && $habitacion != null) {
-    $reserva = $this->model->getReservasHabitacion($habitacion);
+            $reserva = $this->model->getReservasHabitacion($habitacion);
 
-    $datos['id'] = isset($reserva['id']) ? $reserva['id'] : null;
-    $datos['title'] = 'OCUPADO';
-    $datos['start'] = isset($reserva['fecha_ingreso']) ? $reserva['fecha_ingreso'] : null;
-    $datos['end'] = isset($reserva['fecha_salida']) ? $reserva['fecha_salida'] : null;
-    $datos['color'] = '#dc3545';
+            $datos['id'] = isset($reserva['id']) ? $reserva['id'] : null;
+            $datos['title'] = 'OCUPADO';
+            $datos['start'] = isset($reserva['fecha_ingreso']) ? $reserva['fecha_ingreso'] : null;
+            $datos['end'] = isset($reserva['fecha_salida']) ? $reserva['fecha_salida'] : null;
+            $datos['color'] = '#dc3545';
 
-    $results[] = $datos;
+            $results[] = $datos;
 
-    $data['id'] = $habitacion;
-    $data['title'] = 'COMPROBANDO';
-    $data['start'] = $f_llegada;
-    $data['end'] = $f_salida;
-    $data['color'] = '#ffc107';
+            $data['id'] = $habitacion;
+            $data['title'] = 'COMPROBANDO';
+            $data['start'] = $f_llegada;
+            $data['end'] = $f_salida;
+            $data['color'] = '#ffc107';
 
-    $results[] = $data;
-    echo json_encode($results, JSON_UNESCAPED_UNICODE);
-    die();
-}
+            $results[] = $data;
+            echo json_encode($results, JSON_UNESCAPED_UNICODE);
+            die();
+        }
     }
 }
