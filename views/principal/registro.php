@@ -11,43 +11,43 @@ include_once 'views/templates/portada.php';
 							<div class="form-heading text-center">
 								<h3 class="form-title">Crear una cuenta</h3>
 							</div>
-							<form method="post">
+							<form id = "formulario" autocomplete="off">
 								<div class="row">
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="text" name="name" placeholder="First Name">
+											<input class="form-control" type="text" name="nombre" placeholder="Nombre">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 ">
 										<div class="form-group">
-											<input class="form-control" type="text" name="name" placeholder="Last Name">
+											<input class="form-control" type="text" name="apellido" placeholder="Apellidos">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="text" name="name" placeholder="Enter your username">
+											<input class="form-control" type="text" name="usuario" placeholder="usuario">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="email" name="email" placeholder="Email Address">
+											<input class="form-control" type="email" name="correo" placeholder="Correo Electronico">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12">
 										<div class="form-group">
-											<input class="form-control" type="text" name="password" placeholder="Password">
+											<input class="form-control" type="text" name="clave" placeholder="Contraseña">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 ">
 										<div class="form-group">
-											<input class="form-control" type="text" name="password" placeholder="Confirm Password">
+											<input class="form-control" type="text" name="confirmar" placeholder="Confirmar Contraseña">
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-xs-12 form-condition">
 										<div class="agree-label">
 											<input type="checkbox" id="chb2">
 											<label for="chb2">
-												I agree with Haipe's 
+												Estoy de acuerdo
 												<a href="#">Terminos y condiciones</a>
 											</label>
 										</div>
