@@ -31,7 +31,7 @@ class Reserva extends Controller
                     $data['tipo'] = 'danger';
                 }
                 $data['habitaciones'] = $this->model->getHabitaciones();
-
+                $data['habitacion'] = $this->model->getHabitacion($habitacion);
                 $this->views->getView('principal/reserva/reservas', $data);
             }
         }
