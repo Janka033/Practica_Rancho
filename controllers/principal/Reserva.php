@@ -4,6 +4,7 @@ class Reserva extends Controller
     public function __construct()
     {
         parent::__construct();
+        session_start();
     }
 
     public function verify()
@@ -66,4 +67,11 @@ class Reserva extends Controller
             die();
         }
     }
+
+    public function pendiente()
+    {
+        $data['title'] = 'Reserva pendiente';
+        $this->views->getView('principal/clientes/reservas/pendiente', $data);
+    }
+
 }

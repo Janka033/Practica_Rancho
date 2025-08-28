@@ -112,6 +112,12 @@ function crearSession($datos)
   $_SESSION['nombre_usuario'] = $datos['nombre'];
   $_SESSION['rol'] = $datos['rol'];
 }
+//Redirect
+function redirect($ruta)
+{
+  header('Location: ' . $ruta);
+}
+
 //Agregar productos al carrito
 function addToCart($carrito, $id, $nombre, $precio, $token, $cant = 1)
 {
