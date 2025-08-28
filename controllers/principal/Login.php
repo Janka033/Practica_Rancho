@@ -28,7 +28,7 @@ class Login extends Controller
                     if (password_verify($clave, $verificar['clave'])) {
                         //Crear Sessiones
                         crearSession([
-                            'id_usuario' => $verificar['id_usuario'],
+                            'id_usuario' => $verificar['id'],
                             'usuario' => $verificar['usuario'],
                             'correo' => $verificar['correo'],
                             'nombre' => $verificar['nombre'] . ' ' . $verificar['apellido'],
