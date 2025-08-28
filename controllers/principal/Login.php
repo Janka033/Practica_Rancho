@@ -16,7 +16,7 @@ class Login extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (validarCampos(['usuario', 'clave'])) {
-                $usuario = strClean($_POST['nombre']);
+                $usuario = strClean($_POST['usuario']);
                 $clave = strClean($_POST['clave']);
                 // Verificar acceso
                 $verificar = $this->model->validarAcceso($usuario, 0);
@@ -25,7 +25,7 @@ class Login extends Controller
                 } else {
                     if (password_verify($clave, $verificar['clave'])) {
                         //Crear Sessiones
-                        $res = ['tipo' => 'warning', 'msg' => 'BIENVENIDO'];
+                        $res = ['tipo' => 'success', 'msg' => 'BIENVENIDO'];
                     } else {
                         $res = ['tipo' => 'warning', 'msg' => 'CONTRASEÑA INCORRECTA'];
                     }
