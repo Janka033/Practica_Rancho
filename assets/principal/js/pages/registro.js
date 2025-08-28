@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         http.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             const res = JSON.parse(this.responseText);
             alertaSW(res.msg, res.tipo);
             if (res.tipo == "success") {
               frm.reset();
               //Mandar a otra ruta
+              window.location = base_url + "dashboard";
             }
           }
         };

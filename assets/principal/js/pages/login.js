@@ -2,9 +2,9 @@ const frm = document.querySelector("#formulario");
 document.addEventListener("DOMContentLoaded", function () {
   frm.addEventListener("submit", function (e) {
     e.preventDefault();
-    /*if (frm.usuario.value == "" || frm.clave.value == "") {
+    if (frm.usuario.value == "" || frm.clave.value == "") {
       alertaSW("TODOS LOS CAMPOS SON REQUERIDOS", "warning");
-    } else {*/
+    } else {
         const http = new XMLHttpRequest();
 
         const url = base_url + "login/verify";
@@ -20,9 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (res.tipo == "success") {
               frm.reset();
               //Mandar a otra ruta
+              window.location = base_url + "dashboard";
             }
           }
         };
-    //}
+    }
   });
 });
